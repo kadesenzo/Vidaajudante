@@ -1,0 +1,6 @@
+{
+  "name": "LIFE OS — Sistema Operacional Pessoal",
+  "description": "Sistema pessoal completo de organização, acompanhamento, hábitos, estudos, projetos, tarefas, finanças e memória com interface inspirada em Apple iOS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

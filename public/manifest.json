@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "LIFE OS — Sistema Operacional Pessoal",
+  "short_name": "LIFE OS",
+  "description": "Sistema pessoal completo de organização, rotina, hábitos, estudos, projetos, tarefas, finanças e memória com lembretes e alarmes sonoros integrados ao celular.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050507",
+  "theme_color": "#0a0a0c",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

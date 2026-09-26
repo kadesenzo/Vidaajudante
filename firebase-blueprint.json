@@ -1,0 +1,357 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and personal configuration preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "preferredName": { "type": "string" },
+        "language": { "type": "string" },
+        "timeZone": { "type": "string" },
+        "currency": { "type": "string" },
+        "wakeTime": { "type": "string" },
+        "sleepTime": { "type": "string" },
+        "studiesActive": { "type": "boolean" },
+        "worksActive": { "type": "boolean" },
+        "hasProjects": { "type": "boolean" },
+        "mainGoals": { "type": "array" },
+        "forgetfulnessReason": { "type": "string" },
+        "onboardingCompleted": { "type": "boolean" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["uid", "preferredName", "onboardingCompleted"]
+    },
+    "TaskItem": {
+      "title": "TaskItem",
+      "description": "Task or execution item",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "priority": { "type": "string" },
+        "status": { "type": "string" },
+        "category": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "dueTime": { "type": "string" },
+        "estimatedMinutes": { "type": "number" },
+        "projectId": { "type": "string" },
+        "isNextAction": { "type": "boolean" },
+        "completedAt": { "type": "number" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "title", "status", "priority"]
+    },
+    "StudySubject": {
+      "title": "StudySubject",
+      "description": "Subject or academic topic",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "color": { "type": "string" },
+        "totalMinutesStudied": { "type": "number" },
+        "confidenceLevel": { "type": "number" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "name"]
+    },
+    "StudySession": {
+      "title": "StudySession",
+      "description": "Study session with active recall summary",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "subjectId": { "type": "string" },
+        "subjectName": { "type": "string" },
+        "topic": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "date": { "type": "string" },
+        "difficulty": { "type": "string" },
+        "masteryLevel": { "type": "number" },
+        "memoryRecallSummary": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "topic", "durationMinutes"]
+    },
+    "ReviewItem": {
+      "title": "ReviewItem",
+      "description": "Spaced repetition review entry",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "subjectName": { "type": "string" },
+        "topic": { "type": "string" },
+        "scheduledDate": { "type": "string" },
+        "intervalDays": { "type": "number" },
+        "status": { "type": "string" },
+        "confidenceRating": { "type": "number" },
+        "completedAt": { "type": "number" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "topic", "scheduledDate"]
+    },
+    "HabitItem": {
+      "title": "HabitItem",
+      "description": "Tracked habit and streak record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "frequency": { "type": "string" },
+        "targetPerDay": { "type": "number" },
+        "category": { "type": "string" },
+        "currentStreak": { "type": "number" },
+        "bestStreak": { "type": "number" },
+        "history": { "type": "object" },
+        "color": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "name"]
+    },
+    "RoutineBlock": {
+      "title": "RoutineBlock",
+      "description": "Flexible daily and weekly routine block",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "time": { "type": "string" },
+        "endTime": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "daysOfWeek": { "type": "array" },
+        "statusToday": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "time", "title"]
+    },
+    "ProjectItem": {
+      "title": "ProjectItem",
+      "description": "Personal project and goal tracker",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "status": { "type": "string" },
+        "deadline": { "type": "string" },
+        "budget": { "type": "number" },
+        "spent": { "type": "number" },
+        "progressPercent": { "type": "number" },
+        "nextStep": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "name"]
+    },
+    "GoalItem": {
+      "title": "GoalItem",
+      "description": "High level goals and milestones",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "targetValue": { "type": "number" },
+        "currentValue": { "type": "number" },
+        "unit": { "type": "string" },
+        "status": { "type": "string" },
+        "steps": { "type": "array" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "title", "targetValue"]
+    },
+    "FinanceTransaction": {
+      "title": "FinanceTransaction",
+      "description": "Income or expense transaction",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string" },
+        "amount": { "type": "number" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "date": { "type": "string" },
+        "projectId": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "type", "amount"]
+    },
+    "SalesLead": {
+      "title": "SalesLead",
+      "description": "Sales pipeline and client prospect",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "contactName": { "type": "string" },
+        "company": { "type": "string" },
+        "contactChannel": { "type": "string" },
+        "productOrService": { "type": "string" },
+        "value": { "type": "number" },
+        "status": { "type": "string" },
+        "nextAction": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "contactName", "status"]
+    },
+    "MemoryNote": {
+      "title": "MemoryNote",
+      "description": "Second brain thought, note or memory",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "category": { "type": "string" },
+        "isPinned": { "type": "boolean" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "title"]
+    },
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "description": "Daily closing reflection entry",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "date": { "type": "string" },
+        "howWasDay": { "type": "string" },
+        "whatIDid": { "type": "string" },
+        "whatILearned": { "type": "string" },
+        "achievements": { "type": "string" },
+        "tomorrowFocus": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "date"]
+    },
+    "WorkoutLog": {
+      "title": "WorkoutLog",
+      "description": "Physical activity log",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "activity": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "intensity": { "type": "string" },
+        "notes": { "type": "string" },
+        "date": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "activity", "durationMinutes"]
+    },
+    "MealLog": {
+      "title": "MealLog",
+      "description": "Nutrition and water intake log",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "mealType": { "type": "string" },
+        "foods": { "type": "string" },
+        "waterMl": { "type": "number" },
+        "time": { "type": "string" },
+        "date": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["userId", "mealType", "date"]
+    },
+    "AppNotification": {
+      "title": "AppNotification",
+      "description": "Internal notifications and alerts",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "read": { "type": "boolean" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["userId", "title", "message"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/profile/{profileId}": {
+      "schema": "UserProfile",
+      "description": "User profile data"
+    },
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": "TaskItem",
+      "description": "User task items"
+    },
+    "/users/{userId}/studies/{studyId}": {
+      "schema": "StudySubject",
+      "description": "User study subjects"
+    },
+    "/users/{userId}/studySessions/{sessionId}": {
+      "schema": "StudySession",
+      "description": "User study sessions"
+    },
+    "/users/{userId}/reviews/{reviewId}": {
+      "schema": "ReviewItem",
+      "description": "Spaced repetition reviews"
+    },
+    "/users/{userId}/habits/{habitId}": {
+      "schema": "HabitItem",
+      "description": "User habit tracking"
+    },
+    "/users/{userId}/routines/{routineId}": {
+      "schema": "RoutineBlock",
+      "description": "User routine schedule"
+    },
+    "/users/{userId}/projects/{projectId}": {
+      "schema": "ProjectItem",
+      "description": "User projects"
+    },
+    "/users/{userId}/goals/{goalId}": {
+      "schema": "GoalItem",
+      "description": "User goals and targets"
+    },
+    "/users/{userId}/finances/{financeId}": {
+      "schema": "FinanceTransaction",
+      "description": "User finances"
+    },
+    "/users/{userId}/sales/{salesId}": {
+      "schema": "SalesLead",
+      "description": "User sales and business leads"
+    },
+    "/users/{userId}/memory/{memoryId}": {
+      "schema": "MemoryNote",
+      "description": "User memory notes"
+    },
+    "/users/{userId}/journal/{journalId}": {
+      "schema": "JournalEntry",
+      "description": "User journal entries"
+    },
+    "/users/{userId}/workouts/{workoutId}": {
+      "schema": "WorkoutLog",
+      "description": "User workout logs"
+    },
+    "/users/{userId}/meals/{mealId}": {
+      "schema": "MealLog",
+      "description": "User nutrition and meals"
+    },
+    "/users/{userId}/notifications/{notifId}": {
+      "schema": "AppNotification",
+      "description": "User notifications"
+    }
+  }
+}
